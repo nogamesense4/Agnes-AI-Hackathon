@@ -1,5 +1,5 @@
 
-<h1>Not Another AI Tool. A Daily AI Habit.</h1>
+<h1>From Blank Page to First Sale.</h1>
 <h2>Trends expire daily. Shop Briefs arrive daily. Sellers return daily.</h2>
 <p> TasteSell gives SEA e-commerce sellers one Shop Brief every morning — turning Agnes from an AI tool into a daily business workflow. </p>
 
