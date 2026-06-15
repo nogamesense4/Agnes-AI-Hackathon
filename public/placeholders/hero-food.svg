@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <rect width="1024" height="1024" fill="#FFF8F0"/>
+  <rect x="212" y="220" width="600" height="480" rx="40" fill="#FFFFFF" stroke="#E7DED3" stroke-width="4"/>
+  <ellipse cx="512" cy="420" rx="160" ry="120" fill="#FFE4C4"/>
+  <ellipse cx="512" cy="400" rx="120" ry="80" fill="#FFD4A8"/>
+  <rect x="432" y="500" width="160" height="24" rx="12" fill="#E8C49A"/>
+  <rect x="352" y="760" width="320" height="24" rx="12" fill="#E7DED3"/>
+  <rect x="392" y="810" width="240" height="16" rx="8" fill="#F1E7DC"/>
+  <text x="512" y="900" text-anchor="middle" fill="#8B5A2B" font-family="Arial, sans-serif" font-size="32">Food  Demo Hero Placeholder</text>
+</svg>

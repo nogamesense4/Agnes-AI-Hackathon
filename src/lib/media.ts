@@ -1,3 +1,6 @@
+import type { Category, ProductInput } from "./types";
+import { getCachedHeroImageUrl, getCachedHookVideoUrl } from "./fallback-media";
+
 const PROXY_HOST_SUFFIXES = [
   "agnes-ai.com",
   "agnes-ai.space",
@@ -33,10 +36,30 @@ export function toDisplayMediaUrl(url: string): string {
   return `/api/proxy-media?url=${encodeURIComponent(url)}`;
 }
 
+export function getHeroFallbackForProduct(product: ProductInput): string {
+  return getCachedHeroImageUrl(product);
+}
+
+export function getHeroFallbackForCategory(category: Category): string {
+  return getCachedHeroImageUrl({
+    name: "",
+    price: "",
+    category,
+  });
+}
+
+export function getVideoFallbackForProduct(
+  product: ProductInput,
+): string | null {
+  return getCachedHookVideoUrl(product);
+}
+
+/** @deprecated Use getHeroFallbackForProduct */
 export function getDemoHeroFallback(): string {
   return "/demo-hero.png";
 }
 
+/** @deprecated Use getVideoFallbackForProduct */
 export function getDemoVideoFallback(): string {
   return "/demo-hook.mp4";
 }

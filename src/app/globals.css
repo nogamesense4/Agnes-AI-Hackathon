@@ -1,13 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf7f2;
-  --foreground: #1f1a17;
+  --background: #f7f1ea;
+  --foreground: #3d3028;
   --card: #ffffff;
-  --accent: #d97706;
-  --accent-soft: #fff4e6;
-  --muted: #6b5f56;
-  --border: #e8dfd4;
+  --accent: #c9782c;
+  --accent-hover: #a8611f;
+  --accent-soft: #fde8d4;
+  --papaya: #f4a24d;
+  --teal: #34b8b0;
+  --dragonfruit: #d85fb7;
+  --muted: #6b5a4e;
+  --border: #e5d9cc;
+  --footer: #3d3028;
 }
 
 @theme inline {
@@ -15,14 +20,49 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-accent-soft: var(--accent-soft);
+  --color-papaya: var(--papaya);
+  --color-teal: var(--teal);
+  --color-dragonfruit: var(--dragonfruit);
   --color-muted: var(--muted);
   --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
+  --color-footer: var(--footer);
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-fraunces);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+@keyframes thinking-bounce {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+}
+
+.thinking-dot {
+  animation: thinking-bounce 1.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thinking-dot {
+    animation: none;
+    opacity: 0.7;
+  }
 }

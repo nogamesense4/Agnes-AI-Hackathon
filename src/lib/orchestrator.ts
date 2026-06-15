@@ -7,8 +7,8 @@ import {
   isAgnesConfigured,
 } from "./agnes";
 import {
+  getCachedHeroImageUrl,
   getCachedHookVideoUrl,
-  getDemoHeroImage,
   loadCachedTrendSignal,
   loadDemoBrief,
 } from "./fallbacks";
@@ -82,7 +82,7 @@ async function resolveHeroImage(
   }
 
   return {
-    heroImageUrl: getDemoHeroImage(),
+    heroImageUrl: getCachedHeroImageUrl(product),
     imageSource: "cached",
   };
 }
@@ -90,21 +90,28 @@ async function resolveHeroImage(
 async function resolveHookVideo(
   product: ProductInput,
   hookLine: string,
-): Promise<{ hookVideoUrl: string; videoSource: VideoSource }> {
+): Promise<{
+  hookVideoUrl: string;
+  videoSource: VideoSource;
+  videoPlaceholder: boolean;
+}> {
   if (isAgnesConfigured()) {
     try {
       const hookVideoUrl = toDisplayMediaUrl(
         await generateHookVideo(product, hookLine),
       );
-      return { hookVideoUrl, videoSource: "live" };
+      return { hookVideoUrl, videoSource: "live", videoPlaceholder: false };
     } catch {
       // fall through
     }
   }
 
+  const hookVideoUrl = getCachedHookVideoUrl(product);
+
   return {
-    hookVideoUrl: getCachedHookVideoUrl(),
+    hookVideoUrl: hookVideoUrl ?? "",
     videoSource: "cached",
+    videoPlaceholder: hookVideoUrl === null,
   };
 }
 
@@ -166,12 +173,12 @@ export async function runShopBriefPipeline(
       data: { heroImageUrl, imageSource },
     });
 
-    const { hookVideoUrl, videoSource } = await videoPromise;
+    const { hookVideoUrl, videoSource, videoPlaceholder } = await videoPromise;
 
     send({
       step: 5,
       label: "Making hook video",
-      data: { hookVideoUrl, videoSource },
+      data: { hookVideoUrl, videoSource, videoPlaceholder },
     });
 
     send({

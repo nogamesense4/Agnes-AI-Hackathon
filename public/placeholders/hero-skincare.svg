@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <rect width="1024" height="1024" fill="#F8F4EF"/>
+  <rect x="212" y="180" width="600" height="600" rx="40" fill="#FFFFFF" stroke="#E7DED3" stroke-width="4"/>
+  <circle cx="512" cy="420" r="120" fill="#FFE8D6"/>
+  <rect x="352" y="580" width="320" height="24" rx="12" fill="#E7DED3"/>
+  <rect x="392" y="630" width="240" height="16" rx="8" fill="#F1E7DC"/>
+  <text x="512" y="860" text-anchor="middle" fill="#8B7355" font-family="Arial, sans-serif" font-size="32">Skincare  Demo Hero Placeholder</text>
+</svg>

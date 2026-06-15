@@ -22,6 +22,35 @@ export function isAgnesConfigured() {
   return Boolean(process.env.AGNES_API_KEY);
 }
 
+function categoryVisualContext(category: Category): {
+  heroStyle: string;
+  videoScene: string;
+} {
+  switch (category) {
+    case "fashion":
+      return {
+        heroStyle:
+          "fashion e-commerce product shot, fabric texture and garment styling, natural light, premium apparel aesthetic",
+        videoScene:
+          "styled garment or fabric close-up, warm natural lighting, fashion retail aesthetic",
+      };
+    case "food":
+      return {
+        heroStyle:
+          "food product photography, appetizing styling, soft natural light, premium F&B aesthetic",
+        videoScene:
+          "close-up of the food product with texture detail, warm appetizing lighting",
+      };
+    default:
+      return {
+        heroStyle:
+          "beauty product photography, soft natural light, premium skincare aesthetic",
+        videoScene:
+          "close-up product bottle, warm golden lighting, premium skincare aesthetic",
+      };
+  }
+}
+
 function getApiConfig() {
   const apiKey = process.env.AGNES_API_KEY;
   const baseURL = process.env.AGNES_BASE_URL ?? "https://apihub.agnes-ai.com/v1";
@@ -174,7 +203,8 @@ export async function generateHeroImage(
 ): Promise<string> {
   const { apiKey, baseURL } = getApiConfig();
 
-  const prompt = `Cinematic product hero image for ${product.name}, ${sellingStyle} selling style, clean beauty product photography, soft natural light, premium e-commerce aesthetic`;
+  const { heroStyle } = categoryVisualContext(product.category);
+  const prompt = `Cinematic product hero image for ${product.name}, ${sellingStyle} selling style, ${heroStyle}`;
 
   const response = await withTimeout(
     fetch(`${baseURL}/images/generations`, {
@@ -282,7 +312,8 @@ export async function generateHookVideo(
 ): Promise<string> {
   const { apiKey, baseURL } = getApiConfig();
 
-  const prompt = `Cinematic product hook for ${product.name}. Opening line: ${hookLine}. Close-up serum bottle, warm golden lighting, premium skincare aesthetic.`;
+  const { videoScene } = categoryVisualContext(product.category);
+  const prompt = `Cinematic product hook for ${product.name}. Opening line: ${hookLine}. ${videoScene}.`;
 
   const createResponse = await withTimeout(
     fetch(`${baseURL}/videos`, {

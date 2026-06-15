@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <rect width="1024" height="1024" fill="#F8F4EF"/>
+  <rect x="180" y="200" width="664" height="520" rx="32" fill="#FFFFFF" stroke="#E7DED3" stroke-width="4"/>
+  <path d="M512 260 L620 340 L580 520 L512 680 L444 520 L404 340 Z" fill="#E8D4C4" stroke="#C4A484" stroke-width="3"/>
+  <rect x="472" y="340" width="80" height="200" rx="8" fill="#D4B8A8"/>
+  <rect x="352" y="760" width="320" height="24" rx="12" fill="#E7DED3"/>
+  <rect x="392" y="810" width="240" height="16" rx="8" fill="#F1E7DC"/>
+  <text x="512" y="900" text-anchor="middle" fill="#8B7355" font-family="Arial, sans-serif" font-size="32">Fashion  Demo Hero Placeholder</text>
+</svg>
